@@ -1,0 +1,74 @@
+form#survey {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow:row wrap;
+    flex-flow: row wrap;
+}
+form#survey > fieldset {
+    background-color: rgb(189, 224, 207);
+    border-radius: 20px;
+    -webkit-flex: 1 1 300px;
+    flex: 1 1 300px;
+    font-size: 0.85em;
+    padding: 10px;
+    margin: 10px;
+}
+div.formRow {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin: 7px 0px;
+}
+div.formRow > * {
+        -webkit-flex: 1 1 150px;
+        flex: 1 1 150px;
+ }
+ #contenido{
+    width: 50%;
+    margin:0 0 0 5px;
+    padding: 5px 20px;
+    border-width: 5px;
+    border-color: rgb(202, 209, 191);
+    border-radius: 20px; 
+    text-align: center;
+    float: left;
+    font-size: 130%;
+    background-color: aquamarine;
+  
+    clear: both;
+  
+}
+#contenido2{
+    width: 25%;
+    margin:0 0 0 5px;
+    padding: 5px 20px;
+    border-width: 5px;
+    border-color: rgb(202, 209, 191);
+    border-radius: 20px; 
+    text-align: center;
+    float: left;
+    font-size: 130%;
+    background-color: aquamarine;
+  
+    clear: both;
+  
+}
+
+
+
+legend{
+    font-size: 150%;
+
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
