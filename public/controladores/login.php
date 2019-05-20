@@ -42,7 +42,7 @@
                     header("Location:../../admin/vista/usuario/index.php");
                 }
             } else {
-                echo "<h2>Datos de inicio incorrectos....</h2>";
+                echo "<h2>Datos de inicio incorrecto </h2>";
                ;
                 header("Location =../vista/login.php");
             }

@@ -11,9 +11,10 @@ if (!isset($_SESSION['isLogin'])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
-    <title>Modificar Contrasña</title>
+    <link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
+    <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla2.css">
+    <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla.css">
+     <title>Modificar Contrasña</title>
 </head>
 
 <body>
@@ -40,7 +41,7 @@ if (!isset($_SESSION['isLogin'])) {
 </div>
     </header>
     <section>
-        <div class="formulario login">
+        <div class="contenido2">
             <h2>Cambiar contraseña</h2>
             <form action="../../controladores/admin/CambiarContra.php" method="post">
                 <input type="hidden" name="cod" value="<?php echo ($_GET["usu_cod"]); ?>">

@@ -29,7 +29,7 @@ function openWindow(id, txt, code) {
             document.getElementById("floatWindow").innerHTML = this.responseText
         }
     };
-    xmlhttp.open("GET", "../../controladores/user/readMsj.php?id=" + id + "&dest=" + txt + "&code=" + code, true)
+    xmlhttp.open("GET", "../../controladores/user/leerMSJ.php?id=" + id + "&dest=" + txt + "&code=" + code, true)
     xmlhttp.send()
 
     let windowFloat = document.getElementById("floatWindow")

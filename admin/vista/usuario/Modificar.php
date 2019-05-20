@@ -9,16 +9,18 @@ if (!isset($_SESSION['isLogin'])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
-    <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
+    
+    <link rel="stylesheet" href="../../../public/vista/Archivos/modificar.css">
+    
+  <title>Modificar Usuario</title>
 </head>
 
 <body>
     <header>
         <header>
         <h1 class="tittle">Gestion de usuarios</h1>
-<div class="menu">
+<div >
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
@@ -27,23 +29,15 @@ if (!isset($_SESSION['isLogin'])) {
             <li><a href="micuenta.php">Mi Cuenta</a></li>
             <li><a href="">Cerrar Sesion</a></li>
         </ul>
-    </nav>
-</div>
-<div class="user">
-    <div class="userImg">
-        <div class="imagen">
-            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
-        </div>
-        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
-    </div>
-    <!-- <a href='../../../public/vista/login.php'>Iniciar Sesion</a>"-->
-
-</div>
-        </header>
+    </nav></div>
+ </header>
     </header>
     <section>
-        <div class="formulario registro">
+        <div class="">
             <h2>Editar Datos</h2>
+            
+
+<div id=contenido>
             <?php
             $data = $_GET["user"];
             $datos = stripslashes($data);
@@ -51,6 +45,8 @@ if (!isset($_SESSION['isLogin'])) {
             $datos = unserialize($datos);
             ?>
             <form enctype="multipart/form-data" action="../../controladores/user/ModificarUser.php" method="post">
+            
+            <fieldset>
                 <input type="hidden" name="usu_codigo" value="<?php echo ($datos["usu_codigo"]); ?>">
                 <label for="cedula">Cedula</label>
                 <input type="text" name="cedula" id="cedula" value="<?php echo ($datos["usu_cedula"]); ?>" required>
@@ -70,13 +66,15 @@ if (!isset($_SESSION['isLogin'])) {
                     required>
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="<?php echo ($datos["usu_correo"]); ?>" required>
-                <div class="userFoto">
+                <label for="foto">Foto de perfil</label>
                     <img src="../../../img/fotos/<?php echo ($datos["usu_codigo"] . '/');
                                                     echo ($datos["usu_img"]); ?>" alt="">
                     <input type="file" name="foto" id="foto">
-                    <label for="foto">Foto de perfil</label>
-                </div>
-                <input type="submit" value="Actualizar">
+                   
+                
+                 <input type="submit" value="Actualizar" class="boton_personalizado">
+
+                </fieldset>
             </form>
         </div>
     </section>

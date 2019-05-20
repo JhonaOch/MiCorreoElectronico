@@ -11,16 +11,18 @@ if (!isset($_SESSION['isLogin'])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
+    <link rel="stylesheet" href="../../../public/vista/Archivos/contrasena.css">
+    
+    
+   
     <title>Modificar Contrasña</title>
 </head>
 
 <body>
-    <header>
-    <header>
-    <h1 class="tittle">Gestion de usuarios</h1>
-<div class="menu">
+<header>
+    <div><h1 class="tittle">Gestion de usuarios</h1></div>
+<div >
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
@@ -31,27 +33,23 @@ if (!isset($_SESSION['isLogin'])) {
         </ul>
     </nav>
 </div>
-<div class="user">
-    <div class="userImg">
-        <div class="imagen">
-            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
-        </div>
-        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
-    </div>
-    <!-- <a href='../../../public/vista/login.php'>Iniciar Sesion</a>"-->
+ </header>
 
+ 
+ <div id ="contenido2">
+            <h2>Cambiar contraseña</h2>       
 </div>
-    </header>
-    </header>
+<div>
+<form action="../../controladores/user/CambiarContra.php" method="post">
     <section>
-        <div class="formulario login">
-            <h2>Cambiar contraseña</h2>
-            <form action="../../controladores/user/CambiarContra.php" method="post">
+            <fieldset>
+            
                 <input type="hidden" name="cod" value="<?php echo ($_GET["usu_cod"]); ?>">
                 <input type="password" name="epass" id="epass" required placeholder="Contraseña existente">
                 <input type="password" name="pass" id="pass" required placeholder="Nueva contraseña">
-                <input type="password" name="cpass" id="cpass" required placeholder="Reapetir contraseña">
-                <input type="submit" value="Cambiar">
+                <input type="password" name="cpass" id="cpass" required placeholder="Repetir contraseña">
+                <input type="submit" value="Cambiar" class="boton_personalizado">
+                </fieldset>
             </form>
         </div>
     </section>
