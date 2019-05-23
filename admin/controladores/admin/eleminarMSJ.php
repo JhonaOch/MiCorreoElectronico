@@ -11,7 +11,7 @@ include '../../../config/conexionBD.php';
 $cod = isset($_GET["usu_cod"]) ? trim($_GET["usu_cod"]) : null;
 $sql = "DELETE FROM mensaje WHERE mail_codigo='$cod';";
 if ($conn->query($sql) == true) {
-    echo "Mesaje eliminado";
+    echo "Mensaje Eliminado";
     header("Location: ../../vista/admin/index.php");
 }
 $conn->close();

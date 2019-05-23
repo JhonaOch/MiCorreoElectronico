@@ -12,48 +12,42 @@ if (!isset($_SESSION['isLogin'])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../public/vista/Archivos/Contenido2.css">
+    <link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
     <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla.css">
-    <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla2.css">
-    <title>Administrar Usuario</title>
+    <link rel="stylesheet" href="../../../public/vista/Archivos/imagen.css">
 </head>
+
 <body>
-    
-<header> 
-<div class="menu">
-    <nav>
-        <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="UsuariosTabla.php">Usuarios</a></li>
-            <li><a href="micuenta.php">Mi cuenta</a></li>
-            <li><a href="">Cerrar Sesion</a></li>
-        </ul>
-    </nav>
-</div>
-      
-</header>
-<br> 
-
-<div >
-      
+    <header>
+        <h1>Gestion de usuarios</h1>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="UsuariosTabla.php">Usuarios</a></li>
+                    <li><a href="micuenta.php">Mi cuenta</a></li>
+                   
+                </ul>
+                <div class="user">
+                    <div class="userImg">
+                        <div class="imagen">
+                            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
+                        </div>
+                        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
+                    </div>
+            </nav>
+    </header>
     <h2>Tabla Usuario</h2>
-
-    
+    <div id=contenido>
         <section>
-
-        <div class="user">
-    <div class="userImg">
-        <div class="imagen">
-            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
-        </div>
-        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
-    </div>
-</div>
+            <br>
+            <br>
+            <br>
+        
             <table>
-            
+                
                 <thead>
-                    <tr id="color">
-                    
+                    <tr>
                         <td>Cedula</td>
                         <td>Nombre</td>
                         <td>Apellido</td>
@@ -67,6 +61,7 @@ if (!isset($_SESSION['isLogin'])) {
                         <td>Cambiar contraseña</td>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php
                     include '../../../config/conexionBD.php';
@@ -110,17 +105,18 @@ if (!isset($_SESSION['isLogin'])) {
                 echo "<p>Usuario eliminado</p>";
             }
             ?>
+         
         </section>
     </div>
-<footer>
-<small><strong>
-    &#169; Todos los derechos reservados
-    <br>Jonnathan Enrique Ochoa Calderon 
-    <br>Universidad Politecnica Salesiana
-    <br>08-05-2019
-    </strong>
-    </small>
-</footer>
+    <footer>
+        <small><strong>
+                &#169; Todos los derechos reservados
+                <br>Jonnathan Enrique Ochoa Calderon
+                <br>Universidad Politecnica Salesiana
+                <br>08-05-2019
+            </strong>
+        </small>
+    </footer>
 </body>
 
 </html>

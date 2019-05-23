@@ -13,36 +13,37 @@ if (!isset($_SESSION['isLogin'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
     <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla.css">
- <title>Mensaje enviado</title>
+    <link rel="stylesheet" href="../../../public/vista/Archivos/imagen.css">
+    <link rel="stylesheet" href="../../../public/vista/Archivos/fielsed.css">
+
 </head>
 
 <body>
-    <header>
-        <h1 class="tittle">Gestion de usuarios</h1>
-        <div class="menu">
+<header>
+        <h1>Gestion de usuarios</h1>
+        <div>
             <nav>
                 <ul>
-                    <li><a href="../../vista/usuario/index.php">Inicio</a></li>
-                    <li><a href="../../vista/usuario/nuevoemail.php">Nuevo Mensaje</a></li>
-                    <li><a href="../../vista/usuario/enviarmensaje.php">Mensajes Enviados</a></li>
-                    <li><a href="../../vista/usuario/micuenta.php">Mi Cuenta</a></li>
-                    <li><a href="">Cerrar Sesion</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                    <li><a href="nuevoemail.php">Nuevo Mensaje</a></li>
+                    <li><a href="enviarmensaje.php">Enviados</a></li>
+                    <li><a href="micuenta.php">Mi cuenta</a></li>
+                  
                 </ul>
+                <div class="user">
+                    <div class="userImg">
+                        <div class="imagen">
+                            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
+                        </div>
+                        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
+                    </div>
             </nav>
-        </div>
-        <div class="user">
-            <div class="userImg">
-                <div class="imagen">
-                    <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>"
-                        alt="">
-                </div>
-                <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
-            </div>
-        </div>
     </header>
+
+    <h2>Estado</h2>
     <section>
 
-        <div class="formulario crear_usuario">
+        <div id="contenido">
 
             <?php
             include '../../../config/conexionBD.php';
@@ -63,26 +64,24 @@ if (!isset($_SESSION['isLogin'])) {
                 '$codigoDestino'  
             )";
             if ($conn->query($sqlInsert) == true) {
-                echo "<h2>Mensaje enviado con exito</h2>";
-                echo '<i class="far fa-check-circle"></i>';
-                echo '<a href="../../vista/usuario/enviarmensaje.php">Regresar</a>';
+                echo "<h2>Mensaje enviado</h2><br>";
+                echo '<a id="enlace" href="../../vista/usuario/enviarmensaje.php">Regresar</a>';
             } else {
-                echo "<h2>Error al enviar el mensaje: " . mysqli_error($conn) . "</h2>";
-                echo '<i class="fas fa-exclamation-circle"></i>';
-                echo '<a href="../../vista/usuario/nuevoemail.php">Regresar</a>';
+                echo "<h2>Error al enviar el mensaje: " . mysqli_error($conn) . "</h2><br>";
+                echo '<a id="enlace" href="../../vista/usuario/nuevoemail.php">Regresar</a>';
             }
             $conn->close();
             ?>
 
         </div>
         <footer>
-        <small><strong>
-    &#169; Todos los derechos reservados
-    <br>Jonnathan Enrique Ochoa Calderon 
-    <br>Universidad Politecnica Salesiana
-    <br>08-05-2019
-    </strong>
-    </small>
+            <small><strong>
+                    &#169; Todos los derechos reservados
+                    <br>Jonnathan Enrique Ochoa Calderon
+                    <br>Universidad Politecnica Salesiana
+                    <br>08-05-2019
+                </strong>
+            </small>
         </footer>
 </body>
 

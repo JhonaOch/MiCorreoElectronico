@@ -8,45 +8,46 @@ if (!isset($_SESSION['isLogin'])) {
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
+<link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
     <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla.css">
-<title>Modificar Usuario</title>
+    <link rel="stylesheet" href="../../../public/vista/Archivos/imagen.css">
+    <link rel="stylesheet" href="../../../public/vista/Archivos/fielsed.css">
+
 </head>
 
 <body>
-    <header>
-        <h1 class="tittle">Gestion de usuarios</h1>
-        <div class="menu">
+<header>
+        <h1>Gestion de usuarios</h1>
+        <div>
             <nav>
                 <ul>
-                    <li><a href="../../vista/usuario/index.php">Inicio</a></li>
-                    <li><a href="../../vista/usuario/nuevoemil.php">Nuevo Mensaje</a></li>
-                    <li><a href="../../vista/usuario/enviarmensaje.php">Mensajes Enviados</a></li>
-                    <li><a href="../../vista/usuario/micuenta.php">Mi Cuenta</a></li>
-                    <li><a href="../../../config/sessionEnd.php">Cerrar Sesion</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                    <li><a href="nuevoemail.php">Nuevo Mensaje</a></li>
+                    <li><a href="enviarmensaje.php">Enviados</a></li>
+                    <li><a href="micuenta.php">Mi cuenta</a></li>
+                 
                 </ul>
+                <div class="user">
+                    <div class="userImg">
+                        <div class="imagen">
+                            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
+                        </div>
+                        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
+                    </div>
             </nav>
-        </div>
-        <div class="user">
-            <div class="userImg">
-                <div class="imagen">
-                    <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>"
-                        alt="">
-                </div>
-                <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
-            </div>
-        </div>
     </header>
-    <section>
 
-        <div class="formulario crear_usuario">
+    <h2>Editar Datos</h2>
+    <section>
+        <div id="contenido">
             <?php
             include '../../../config/conexionBD.php';
             $foto = $_FILES['foto']['name'];
             $temp = $_FILES['foto']['tmp_name'];
             $type = $_FILES['foto']['type'];
             move_uploaded_file($temp, "../../../img/fotos/" . $_POST["usu_codigo"] . "/$foto");
+
+
             $cedula = isset($_POST["cedula"]) ? trim($_POST["cedula"]) : null;
             $nombre = isset($_POST["nombre"]) ? mb_strtoupper(trim($_POST["nombre"]), 'UTF-8') : null;
             $apellido = isset($_POST["apellido"]) ? mb_strtoupper(trim($_POST["apellido"]), 'UTF-8') : null;
@@ -56,6 +57,8 @@ if (!isset($_SESSION['isLogin'])) {
             $fechaNac = isset($_POST["fechaNac"]) ? trim($_POST["fechaNac"]) : null;
             $cod = $_POST["usu_codigo"];
             $date = date(date("Y-m-d H:i:s"));
+
+
             $sql = "UPDATE usuario SET
                         usu_cedula='" . $cedula . "',
                         usu_nombres='" . $nombre . "',
@@ -67,31 +70,29 @@ if (!isset($_SESSION['isLogin'])) {
                         usu_fecha_modificacion='$date',
                         usu_img='" . $_FILES['foto']['name'] . "'
                         WHERE usu_codigo='$cod'";
+
             if ($conn->query($sql) == true) {
-                echo "<h2>Datos actualizados con exito</h2>";
-                echo '<i class="far fa-check-circle"></i>';
+                echo "<h2>Datos actualizados con exito</h2><br>";
             } else {
                 if ($conn->errno == 1062) {
-                    echo "<h2>Las cedula $cedula ya existe</h2>";
-                    echo '<i class="fas fa-exclamation-circle"></i>';
+                    echo "<h2>La cedula $cedula ya existe</h2><br>";
                 } else {
-                    echo "<h2>Error al actualizar losa datos " . mysqli_error($conn) . "</h2>";
-                    echo '<i class="fas fa-exclamation-circle"></i>';
+                    echo "<h2>Error al actualizar los datos " . mysqli_error($conn) . "</h2> <br>";
                 }
             }
             $conn->close();
             ?>
-            <a href="../../vista/usuario/index.php">Regresar</a>
+            <a  id="enlace" href="../../vista/usuario/index.php">Regresar</a>
         </div>
     </section>
     <footer>
-    <small><strong>
-    &#169; Todos los derechos reservados
-    <br>Jonnathan Enrique Ochoa Calderon 
-    <br>Universidad Politecnica Salesiana
-    <br>08-05-2019
-    </strong>
-    </small>
+        <small><strong>
+                &#169; Todos los derechos reservados
+                <br>Jonnathan Enrique Ochoa Calderon
+                <br>Universidad Politecnica Salesiana
+                <br>08-05-2019
+            </strong>
+        </small>
     </footer>
 </body>
 

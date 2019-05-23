@@ -14,8 +14,6 @@ function buscar(input) {
     xmlhttp.open("GET", "../../controladores/user/buscar.php?key=" + text, true)
     xmlhttp.send()
 }
-
-
 function openWindow(id, txt, code) {
     console.log(code)
 
@@ -29,7 +27,7 @@ function openWindow(id, txt, code) {
             document.getElementById("floatWindow").innerHTML = this.responseText
         }
     };
-    xmlhttp.open("GET", "../../controladores/user/leerMSJ.php?id=" + id + "&dest=" + txt + "&code=" + code, true)
+    xmlhttp.open("GET", "../../controladores/user/Leer.php?id=" + id + "&dest=" + txt + "&code=" + code, true)
     xmlhttp.send()
 
     let windowFloat = document.getElementById("floatWindow")
@@ -41,3 +39,4 @@ function cluseWindow() {
     let windowFloat = document.getElementById("floatWindow")
     windowFloat.style.display = "none"
 }
+

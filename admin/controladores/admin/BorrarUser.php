@@ -11,6 +11,7 @@ include '../../../config/conexionBD.php';
 $cod = isset($_GET["usu_cod"]) ? trim($_GET["usu_cod"]) : null;
 $delete = isset($_GET["delete"]) ? trim($_GET["delete"]) : null;
 $date = date(date("Y-m-d H:i:s"));
+
 if ($cod != null and $delete == true) {
     $sql = "UPDATE usuario SET usu_eliminado='S', usu_fecha_modificacion='$date' WHERE usu_codigo='$cod';";
     $result = $conn->query($sql);

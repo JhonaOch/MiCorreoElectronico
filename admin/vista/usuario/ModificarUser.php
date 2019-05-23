@@ -14,6 +14,7 @@ if (!isset($_SESSION['isLogin'])) {
     <link rel="stylesheet" href="../../../public/vista/Archivos/imagen.css">
     <link rel="stylesheet" href="../../../public/vista/Archivos/fielsed.css">
 
+
 </head>
 
 <body>
@@ -22,10 +23,11 @@ if (!isset($_SESSION['isLogin'])) {
         <div>
             <nav>
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="UsuariosTabla.php">Usuarios</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                    <li><a href="nuevoemail.php">Nuevo Mensaje</a></li>
+                    <li><a href="enviarmensaje.php">Enviados</a></li>
                     <li><a href="micuenta.php">Mi cuenta</a></li>
-                
+                    
                 </ul>
                 <div class="user">
                     <div class="userImg">
@@ -36,16 +38,23 @@ if (!isset($_SESSION['isLogin'])) {
                     </div>
             </nav>
     </header>
+
     <h2>Editar Datos</h2>
+
+    </header>
+
     <section>
         <div id=contenido>
+
             <?php
             $data = $_GET["user"];
             $datos = stripslashes($data);
             $datos = urldecode($datos);
             $datos = unserialize($datos);
             ?>
-            <form enctype="multipart/form-data" action="../../controladores/admin/ModificarUser.php" method="post">
+
+            <form enctype="multipart/form-data" action="../../controladores/user/ModificarUser.php" method="post">
+
                 <fieldset>
                     <input type="hidden" name="usu_codigo" value="<?php echo ($datos["usu_codigo"]); ?>">
                     <label for="cedula">Cedula</label>
@@ -68,7 +77,9 @@ if (!isset($_SESSION['isLogin'])) {
                     <input type="file" name="foto" id="foto">
 
 
+
                     <input type="submit" value="Actualizar" class="boton_personalizado">
+
                 </fieldset>
             </form>
         </div>
@@ -81,6 +92,7 @@ if (!isset($_SESSION['isLogin'])) {
                 <br>08-05-2019
             </strong>
         </small>
+
     </footer>
 </body>
 

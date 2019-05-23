@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="Archivos/CrearUsuario.css">
-    
+
 </head>
 
 <body>
-<header>
-        
+    <header>
+
         <div>
             <nav>
                 <ul>
@@ -18,25 +18,25 @@
                 </ul>
             </nav>
         </div>
-       
     </header>
-    <section>
-    <h2>Iniciar Sesion</h2>
-        <div id="contenido">
-           
-            <form action="../controladores/login.php" method="post">
-            <fieldset>
-            <label for="email">Correo</label>
-                <input type="email" name="email" id="email" required placeholder="Correo">
-                <label for="email">Contrasena</label>
-                <input type="password" name="pass" id="pass" required placeholder="Contraseña">
-                <br>
-                <input type="submit" class="boton_personalizado" value="Ingresar">
-            </fieldset>
-            </form>
-        </div>
-    </section>
+    <div>
+        <section>
+            <h2>Iniciar Sesion</h2>
+            <div id="contenido">
+                <form action="../controladores/login.php" method="post">
+                    <fieldset>
+                        <label for="email">Correo</label>
+                        <input type="email" name="email" id="email" required placeholder="Correo">
+                        <label for="email">Contrasena</label>
+                        <input type="password" name="pass" id="pass" required placeholder="Contraseña">
+                        <br>
+                        <input type="submit" class="boton_personalizado" value="Ingresar">
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </div>
     <footer>
-        
+
     </footer>
 </body>

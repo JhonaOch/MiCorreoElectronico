@@ -11,40 +11,39 @@ if (!isset($_SESSION['isLogin'])) {
 
 <head>
     <meta charset="UTF-8">
-   
+
     <link rel="stylesheet" href="../../../public/vista/Archivos/indexAd.css">
-    <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla2.css">
     <link rel="stylesheet" href="../../../public/vista/Archivos/Tabla.css">
-    <title>Mi cuenta</title>
+    <link rel="stylesheet" href="../../../public/vista/Archivos/imagen.css">
+
 </head>
 
 <body>
     <header>
-    <header>
-    <h1 class="tittle">Gestion de usuarios</h1>
-<div class="menu">
-    <nav>
-        <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="UsuariosTabla.php">Usuarios</a></li>
-            <li><a href="micuenta.php">Mi cuenta</a></li>
-            <li><a href="">Cerrar Sesion</a></li>
-        </ul>
-    </nav>
-</div>
+        <h1>Gestion de usuarios</h1>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="UsuariosTabla.php">Usuarios</a></li>
+                    <li><a href="micuenta.php">Mi cuenta</a></li>
+                    
+                </ul>
+                <div class="user">
+                    <div class="userImg">
+                        <div class="imagen">
+                            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
+                        </div>
+                        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
+                    </div>
+            </nav>
     </header>
-    </header>
-    <div id="contenedor">
-        <h2>Mi Cuenta</h2>
+    <h2>Mi Cuenta</h2>
+    <div id=contenido>
         <section>
-        <div class="user">
-    <div class="userImg">
-        <div class="imagen">
-            <img src="<?php echo ('../../../img/fotos/' . $_SESSION["codigo"] . '/' . $_SESSION["img"]) ?>" alt="">
-        </div>
-        <p><span><?php echo ($_SESSION['nombre'] . ' ' . $_SESSION['apellido']) ?></span></p>
-    </div>
-</div>
+            <br>
+            <br>
+            <br>
             <table>
                 <thead>
                     <tr>
@@ -61,22 +60,6 @@ if (!isset($_SESSION['isLogin'])) {
                         <td>Cambiar contraseña</td>
                     </tr>
                 </thead>
-                <!--
-                <tfoot>
-                    <tr>
-                        <td colspan="10">
-                            <div class="links">
-                                <a href="#">&laquo;</a>
-                                <a class="active" href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">&raquo;</a>
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
-                -->
                 <tbody>
                     <?php
                     include '../../../config/conexionBD.php';
@@ -105,7 +88,7 @@ if (!isset($_SESSION['isLogin'])) {
                         echo "</tr>";
                     } else {
                         echo "<tr>";
-                        echo '<td colspan="10" class="db_null"><p>No existen usuarios registrados en el sistema</p><i class="fas fa-exclamation-circle"></i></td>';
+                        echo '<td colspan="10" ><p>No existen usuarios registrados en el sistema</p></td>';
                         echo "</tr>";
                     }
                     $conn->close();
@@ -120,15 +103,15 @@ if (!isset($_SESSION['isLogin'])) {
             ?>
         </section>
     </div>
-    <footer >
-    <small><strong>
-    &#169; Todos los derechos reservados
-    <br>Jonnathan Enrique Ochoa Calderon 
-    <br>Universidad Politecnica Salesiana
-    <br>08-05-2019
-    </strong>
-    </small>
-        
+    <footer>
+        <small><strong>
+                &#169; Todos los derechos reservados
+                <br>Jonnathan Enrique Ochoa Calderon
+                <br>Universidad Politecnica Salesiana
+                <br>08-05-2019
+            </strong>
+        </small>
+
     </footer>
 </body>
 

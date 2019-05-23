@@ -1,0 +1,40 @@
+header .userImg{
+    display: flex;
+    align-items: center;
+    }
+    header .imagen{
+        width: 60px;
+        height: 60px;
+        margin-left: 700px;
+    }
+    header .imagen img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+   
+    header .user{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+    header .user p span{
+        color:antiquewhite;
+    }
+    section table tbody tr td img{
+        width: 50px;
+        height: 50px;
+    }
+   
+
+    #enlace {
+        background-color: #21211d;
+        color: #FFF;
+        padding: 10px;
+        border-radius: 20px;
+        text-decoration: none;
+        cursor: pointer;
+        margin-left: 740px;
+        
+      }
