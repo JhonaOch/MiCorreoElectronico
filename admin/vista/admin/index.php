@@ -77,7 +77,8 @@ if (!isset($_SESSION['isLogin'])) {
                                 $rowDestino = $sqlDestino->fetch_assoc();
                                 echo "<td>" . $rowDestino["usu_correo"] . "</td>";
                                 echo "<td>" . $row["mail_asunto"] . "</td>";
-                                echo '<td><a href="../../controladores/admin/eliminarMSJ.php?usu_cod=' . $row["mail_codigo"] . '">Eliminar</a></td>';
+                                echo '<td><a href=" ../../controladores/admin/Elimina.php?usu_cod=' . $row["mail_codigo"] . '">Eliminar</a></td>';
+                       
                             }
                         } else {
                             echo "<tr>";
