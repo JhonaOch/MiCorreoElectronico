@@ -26,7 +26,7 @@ if (!isset($_SESSION['isLogin'])) {
                     <li><a href="../../vista./usuario/index.php">Inicio</a></li>
                     <li><a href="../../vista./usuario/UsuariosTabla.php">Usuarios</a></li>
                     <li><a href="../../vista./usuario/micuenta.php">Mi cuenta</a></li>
-                    
+                    <li><a href="../../../config/sesionfinal.php">Salir</a></li>
                 </ul>
                 <div class="user">
                     <div class="userImg">

@@ -29,6 +29,7 @@ if (!isset($_SESSION['isLogin'])) {
                     <li><a href="nuevoemail.php">Nuevo Mensaje</a></li>
                     <li><a href="enviarmensaje.php">Enviados</a></li>
                     <li><a href="micuenta.php">Mi cuenta</a></li>
+                    <li><a href="../../../config/sesionfinal.php">Salir</a></li>
                   
                 </ul>
                 <div class="user">
